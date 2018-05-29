@@ -7,6 +7,7 @@ public class DataModel {
     private String description;
     private String imageFileName;
     private String resolution;
+    private String name = "Kevin";
 
     public DataModel(String description, String imageFileName, String resolution) {
         this.description = description;
