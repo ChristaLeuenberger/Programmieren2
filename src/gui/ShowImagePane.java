@@ -1,14 +1,12 @@
 package gui;
 
-import com.sun.javafx.font.freetype.HBGlyphLayout;
 import datamodel.DataLoader;
 import datamodel.DataLoaderTxt;
 import datamodel.DataLoaderXml;
 import datamodel.DataModel;
-import java.io.File;
-import java.util.logging.Logger;
 
-import javafx.event.EventHandler;
+import java.io.File;
+
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,7 +18,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class ShowImagePane extends Pane {
-    private static final Logger logger = Logger.getLogger( ShowImagePane.class.getName() );
 
     private Stage mainStage;
     private DataLoader dataLoader;
@@ -28,7 +25,6 @@ public class ShowImagePane extends Pane {
 
     public ShowImagePane(Stage mainStage) {
         this.mainStage = mainStage;
-        logger.info(mainStage.toString());
         ImageView imageView = new ImageView();
         imageView.setFitWidth(600.0D);
         imageView.setPreserveRatio(true);
@@ -49,13 +45,13 @@ public class ShowImagePane extends Pane {
                 imageView.setImage(image);
                 imageView.setFitWidth(600.0D);
                 imageView.setPreserveRatio(true);
-            } catch (Exception var8) {
-                System.out.println("reading file failed: " + var8.getMessage());
+            } catch (Exception iter) {
+                System.out.println("reading file failed: " + iter.getMessage());
             }
         });
 
         HBox hBox = new HBox();
-        hBox.getChildren().addAll(imageView,loadButton);
+        hBox.getChildren().addAll(imageView, loadButton);
         VBox vBox = new VBox();
         vBox.getChildren().add(hBox);
         getChildren().add(vBox);

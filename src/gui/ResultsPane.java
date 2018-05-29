@@ -9,18 +9,32 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 public class ResultsPane extends Pane {
-    private Button resultsPaneBotton = new Button("Results");
+    private Button resultsPaneBotton = new Button("Results"); //für was brauchen wir den?
     private Label lengthLabel = new Label("Length:");
     private Label lengthValueLabel = new Label();
-    private Label angleLabel = new Label("Angle");
+    private Label angleLabel = new Label("Angle:");
     private Label angleValueLabel = new Label();
     private Button clearButton = new Button("clear all");
 
-    Button getResultsPaneBotton() {return resultsPaneBotton;}
-    Label getLengthLabel() {return  lengthLabel;}
-    Label getLengthValueLabel() {return lengthValueLabel;}
-    Label getAngleLabel() {return angleLabel;}
-    Button getClearButton() {return clearButton;}
+    Button getResultsPaneBotton() {
+        return resultsPaneBotton;
+    }
+
+    Label getLengthLabel() {
+        return lengthLabel;
+    }
+
+    Label getLengthValueLabel() {
+        return lengthValueLabel;
+    }
+
+    Label getAngleLabel() {
+        return angleLabel;
+    }
+
+    Button getClearButton() {
+        return clearButton;
+    }
 
     ResultsPane() {
 
