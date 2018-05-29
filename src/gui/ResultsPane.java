@@ -9,7 +9,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 public class ResultsPane extends Pane {
-    private Button resultsPaneBotton;
+    private Button resultsPaneBotton = new Button("Results");
     private Label lengthLabel = new Label("Length:");
     private Label lengthValueLabel = new Label();
     private Label angleLabel = new Label("Angle");
