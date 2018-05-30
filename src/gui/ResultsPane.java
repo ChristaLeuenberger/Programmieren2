@@ -38,6 +38,13 @@ public class ResultsPane extends Pane {
 
     ResultsPane() {
 
+       /* clearButton.setOnAction(event -> {
+            try {
+                (, resultPane.getResult());
+            }
+                }
+        );*/
+
         HBox lengthHBox = new HBox();
         lengthHBox.getChildren().addAll(lengthLabel, lengthValueLabel);
         lengthHBox.setSpacing(10.0D);

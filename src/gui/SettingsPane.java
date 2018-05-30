@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public class SettingsPane extends StackPane {
 
@@ -25,69 +26,58 @@ public class SettingsPane extends StackPane {
     private Label measurementLabel = new Label("Choose the measurement:");
     private Label linearLabel = new Label("linear: ");
     private Label angleLabel = new Label("angle: ");
+    private ColorPicker colorPicker = new ColorPicker();
 
     Slider getThicknessSlider() {
         return thicknessSlider;
     }
-
     Label getThicknessLabel() {
         return thicknessLabel;
     }
-
     Label getColorLabel() {
         return colorLabel;
     }
-
     Label getBlackLabel() {
         return blackLabel;
     }
-
     RadioButton getBlackButton() {
         return blackButton;
     }
-
     Label getWhiteLabel() {
         return whiteLabel;
     }
-
     RadioButton getWhiteButton() {
         return whiteButton;
     }
-
     RadioButton getLinearButton() {
         return linearButton;
     }
-
     Label getRedLabel() {
         return redLabel;
     }
-
     RadioButton getRedButton() {
         return redButton;
     }
-
     ToggleGroup getColorButtons() {
         return colorButtons;
     }
-
     ToggleGroup getMeasurementButtons() {
         return measurementButtons;
     }
-
     RadioButton getAngleButton() {
         return angleButton;
     }
-
     Label getMeasurementLabel() {
         return measurementLabel;
     }
-
     Label getLinearLabel() {
         return linearLabel;
     }
-
     Label getAngleLabel() {
         return angleLabel;
+    }
+    ColorPicker getColorPicker() {
+        return colorPicker;
     }
 
     SettingsPane() {
@@ -107,8 +97,8 @@ public class SettingsPane extends StackPane {
         colorsHBox.setSpacing(10.0D);
         colorsHBox.setPadding(new Insets(5.0D, 5.0D, 5.0D, 5.0D));
         VBox colorVBox = new VBox();
-        colorVBox.getChildren().addAll(colorLabel, colorsHBox);
-        colorVBox.setPadding(new Insets(5.0D, 5.0D, 5.0D, 5.0D));
+        colorVBox.getChildren().addAll(colorLabel, colorPicker);//.addAll(colorLabel, colorsHBox);
+        //colorVBox.setPadding(new Insets(5.0D, 5.0D, 5.0D, 5.0D));
         HBox measurementsHBox = new HBox();
         measurementsHBox.getChildren().addAll(linearLabel, linearButton, angleLabel, angleButton);
         measurementsHBox.setSpacing(10.0D);
