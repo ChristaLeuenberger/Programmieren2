@@ -14,7 +14,7 @@ public class DataLoaderTxt implements DataLoader {
     public DataLoaderTxt() {
     }
 
-    public DataModel loadData(File file) {
+    public DataModel loadDataXml(File file) {
         List<String> dataLoader = new ArrayList<>();
 
         try {

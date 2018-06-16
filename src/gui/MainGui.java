@@ -36,7 +36,7 @@ public class MainGui extends Application {
         mainPane.setTop(showImagePane.getLoadButton());
 
         logger.info(settingsPane.toString());
-        Scene scene = new Scene(mainPane, 1000, 1000);
+        Scene scene = new Scene(mainPane, 900, 1000);
         mainStage.setScene(scene);
         mainStage.setTitle("measure image APP");
         mainStage.show();

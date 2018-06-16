@@ -18,13 +18,13 @@ import java.beans.EventHandler;
 
 public class SettingsPane extends StackPane {
 
-    private Slider thicknessSlider = new Slider(0.0D, 100.0D, 10.0D);
-    private Label thicknessLabel = new Label("Chose the thickness:");
-    private Label colorLabel = new Label("Choose the linecolor:");
+    private Slider thicknessSlider = new Slider(0.0D, 20.0D, 2.0D);
+    private Label thicknessLabel = new Label("Choose line thickness:");
+    private Label colorLabel = new Label("Choose line color:");
     private RadioButton linearButton = new RadioButton();
     private ToggleGroup measurementToggleGroup = new ToggleGroup();
     private RadioButton angleButton = new RadioButton();
-    private Label measurementLabel = new Label("Choose the measurement:");
+    private Label measurementLabel = new Label("Choose measurement:");
     private Label linearLabel = new Label("linear: ");
     private Label angleLabel = new Label("angle: ");
     private ColorPicker colorPicker = new ColorPicker();
@@ -74,6 +74,7 @@ public class SettingsPane extends StackPane {
 
         thicknessSlider.setShowTickLabels(true);
         thicknessSlider.setShowTickMarks(true);
+        thicknessSlider.setMajorTickUnit(5);
         colorPicker.setStyle("-fx-color-label-visible: false ;");
         linearButton.setToggleGroup(measurementToggleGroup);
         angleButton.setToggleGroup(measurementToggleGroup);

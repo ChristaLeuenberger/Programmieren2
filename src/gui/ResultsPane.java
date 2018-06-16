@@ -19,12 +19,16 @@ import java.io.IOException;
 
 public class ResultsPane extends Pane {
     private Button resultsButton = new Button("Results");
-    private Label lengthLabel = new Label("Length:");
+    private Label lengthLabel = new Label("Length: ");
     private Label lengthValueLabel = new Label();
-    private Label angleLabel = new Label("Angle:");
+    private Label angleLabel = new Label("Angle: ");
     private Label angleValueLabel = new Label();
-    private Label imageNameLabel = new Label("Image:");
+    private Label imageNameLabel = new Label("Image: ");
     private Label imageNameValueLabel = new Label();
+    private Label aspectRationLabel = new Label("Real aspect ration: ");
+    private Label aspectRationValueLabel = new Label();
+    private Label resolutionLabel = new Label("Resolution: ");
+    private Label resolutionValueLabel = new Label();
     private String imageFileName;
 
 
@@ -32,9 +36,12 @@ public class ResultsPane extends Pane {
     Label getLengthLabel() {return  lengthLabel;}
     Label getLengthValueLabel() {return lengthValueLabel;}
     Label getAngleLabel() {return angleLabel;}
+    Label getAngleValueLabel() {return angleValueLabel;}
     String getImageFileName () {return imageFileName;}
-
-
+    Label getAspectRationValueLabel() {return aspectRationValueLabel;}
+    Label getAspectRationLabel() {return aspectRationLabel;}
+    Label getResolutionLabel() { return resolutionLabel; }
+    Label getResolutionValueLabel() { return resolutionValueLabel; }
 
     ResultsPane() {
         HBox resultButtonHBox = new HBox();
@@ -53,8 +60,16 @@ public class ResultsPane extends Pane {
         angleHBox.getChildren().addAll(angleLabel, angleValueLabel);
         angleHBox.setSpacing(10.0D);
         angleHBox.setPadding(new Insets(5.0D, 5.0D, 5.0D, 5.0D));
+        HBox aspectRationHBox = new HBox();
+        aspectRationHBox.getChildren().addAll(aspectRationLabel, aspectRationValueLabel);
+        aspectRationHBox.setSpacing(10.0D);
+        aspectRationHBox.setPadding(new Insets(5.0D, 5.0D, 5.0D, 5.0D));
+        HBox resolutionHBox = new HBox();
+        resolutionHBox.getChildren().addAll(resolutionLabel, resolutionValueLabel);
+        resolutionHBox.setSpacing(10.0D);
+        resolutionHBox.setPadding(new Insets(5.0D, 5.0D, 5.0D, 5.0D));
         VBox resultsVBox = new VBox();
-        resultsVBox.getChildren().addAll(resultButtonHBox,nameHBox,lengthHBox, angleHBox);
+        resultsVBox.getChildren().addAll(resultButtonHBox,nameHBox,lengthHBox, angleHBox, aspectRationHBox, resolutionHBox);
         resultsVBox.setAlignment(Pos.CENTER);
         resultsVBox.setSpacing(10.0D);
         resultsVBox.setPadding(new Insets(5.0D, 5.0D, 5.0D, 5.0D));

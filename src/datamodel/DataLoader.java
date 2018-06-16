@@ -4,5 +4,6 @@ package datamodel;
 import java.io.File;
 
 public interface DataLoader {
-    DataModel loadData(File file);
+    DataModel loadDataXml(File file);
+    /*DataModel loadDataXml (File file);*/
 }
