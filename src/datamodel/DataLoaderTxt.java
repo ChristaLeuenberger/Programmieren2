@@ -50,10 +50,13 @@ public class DataLoaderTxt implements DataLoader {
                 }
             }
         }
-        String [] resolutionSplit = resolution.split("(?i)(?=[a-z])");
-        String resolutionValue = resolutionSplit[0];
-        String resolutionUnit = resolutionSplit [1];
-        resolutionUnit = resolutionUnit + resolutionSplit[2];
+        String resolutionValue= null;
+        String resolutionUnit= null;
+        if (resolution!= null){
+        String[] resolutionSplit = resolution.split("(?i)(?=[a-z])",2);
+        System.out.println(resolutionSplit.length);
+        resolutionValue = resolutionSplit[0];
+        resolutionUnit = resolutionSplit [1];}
 
         return new DataModel(description, imageFileName, resolution, resolutionValue, resolutionUnit);
     }

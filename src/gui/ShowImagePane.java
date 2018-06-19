@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 
 import java.io.File;
 
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -29,7 +30,8 @@ public class ShowImagePane extends Pane {
     private static final Logger logger = Logger.getLogger(DataLoader.class.getName());
 
     private Pane drawPane = new Pane();
-    private Stage mainStage;
+    private MainGui mainGui;
+    private static Stage mainStage;
     private DataLoader dataLoader;
     private DataModel dataModel;
     private LineAngleCalculation lineAngleCalculation = new LineAngleCalculation();
@@ -53,7 +55,8 @@ public class ShowImagePane extends Pane {
         return clicked;
     }
 
-    public ShowImagePane(Stage mainStage, SettingsPane settingsPane, ResultsPane resultsPane) {
+    public ShowImagePane(MainGui mainGui, Stage mainStage, SettingsPane settingsPane, ResultsPane resultsPane) {
+        this.mainGui = mainGui;
         this.mainStage = mainStage;
         ImageView imageView = new ImageView();
         imageView.setFitWidth(600.0D);
@@ -66,7 +69,12 @@ public class ShowImagePane extends Pane {
         });
         loadButton.setOnAction((ActionEvent event) -> {
 
+            clearAll(polyline, resultsPane);
+
+
+
             try {
+                logger.info("coordlist(load): "+lineAngleCalculation.getTotalCoordinates());
                 FileChooser fileChooser = new FileChooser();
                 File metaFile = fileChooser.showOpenDialog(mainStage);
                 if (metaFile.getName().endsWith(".txt")) {
@@ -131,15 +139,7 @@ public class ShowImagePane extends Pane {
         });
 
         settingsPane.getClearButton().setOnAction((ActionEvent) -> {
-            if (lineAngleCalculation != null) {
-                polyline.getPoints().clear();
-                lineAngleCalculation.removeCoordinates();
-                resultsPane.getLengthValueLabel().setText(" ");
-                resultsPane.getAngleValueLabel().setText(" ");
-                clicked = false;
-            }
-            calculated = false;
-            draw = false;
+        clearAll(polyline, resultsPane);
 
         });
 
@@ -178,6 +178,19 @@ public class ShowImagePane extends Pane {
             Coordinates coordinates = new Coordinates(pointX, pointY);
             lineAngleCalculation.addCoordinates(coordinates);
         });
+    }
+    private void clearAll (Polyline polyline, ResultsPane resultsPane) {
+        if (lineAngleCalculation != null) {
+        polyline.getPoints().clear();
+        lineAngleCalculation.removeCoordinates();
+        logger.info("coordlist: "+lineAngleCalculation.getTotalCoordinates());
+        resultsPane.getLengthValueLabel().setText(" ");
+        resultsPane.getAngleValueLabel().setText(" ");
+        clicked = false;
+    }
+        calculated = false;
+        draw = false;
+
     }
 
     }

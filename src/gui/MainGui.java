@@ -29,7 +29,7 @@ public class MainGui extends Application {
     @Override
     public void start(Stage mainStage) throws Exception {
         logger.info("MainStage von Main: " +  mainStage.toString());
-        ShowImagePane showImagePane = new ShowImagePane(mainStage, settingsPane, resultsPane);
+        ShowImagePane showImagePane = new ShowImagePane(this, mainStage, settingsPane, resultsPane);
         mainPane.setLeft(settingsPane);
         mainPane.setBottom(resultsPane);
         mainPane.setRight(showImagePane);

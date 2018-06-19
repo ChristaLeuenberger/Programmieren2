@@ -43,14 +43,14 @@ public class DataLoaderXml implements DataLoader {
             String resolutionValue = null;
             String resolutionUnit = null;
 
-            DocumentBuilderFactory documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+           /* DocumentBuilderFactory documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
                 Document document = documentBuilder.parse(imageFileName);
             NodeList elements = document.getDocumenttElement().getE
 
 
 
 
-
+*/
 
 
 
