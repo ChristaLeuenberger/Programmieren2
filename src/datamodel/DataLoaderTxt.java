@@ -14,7 +14,7 @@ public class DataLoaderTxt implements DataLoader {
     public DataLoaderTxt() {
     }
 
-    public DataModel loadDataXml(File file) {
+    public DataModel loadData(File file) {
         List<String> dataLoader = new ArrayList<>();
 
         try {
@@ -58,6 +58,6 @@ public class DataLoaderTxt implements DataLoader {
         resolutionValue = resolutionSplit[0];
         resolutionUnit = resolutionSplit [1];}
 
-        return new DataModel(description, imageFileName, resolution, resolutionValue, resolutionUnit);
+        return new DataModel(description, imageFileName, resolutionValue, resolutionUnit);
     }
 }

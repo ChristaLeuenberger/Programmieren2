@@ -82,7 +82,7 @@ public class ShowImagePane extends Pane {
                 } else {
                     dataLoader = new DataLoaderXml();
                 }
-                dataModel = dataLoader.loadDataXml(metaFile);
+                dataModel = dataLoader.loadData(metaFile);
                 Image image = new Image("file:" + metaFile.getParent() + File.separator + dataModel.getImageFileName());
                 imageView.setImage(image);
                 resultsPane.setImageDescription(dataModel.getDescription());

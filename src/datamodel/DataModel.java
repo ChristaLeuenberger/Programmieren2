@@ -7,15 +7,13 @@ import java.util.List;
 public class DataModel {
     private String description;
     private String imageFileName;
-    private String resolution;
     private String resolutionValue;
     private String resolutionUnit;
 
    
-    public DataModel(String description, String imageFileName, String resolution, String resolutionValue, String resolutionUnit) {
+    public DataModel(String description, String imageFileName, String resolutionValue, String resolutionUnit) {
         this.description = description;
         this.imageFileName = imageFileName;
-        this.resolution = resolution;
         this.resolutionValue = resolutionValue;
         this.resolutionUnit = resolutionUnit;
     }
@@ -43,7 +41,7 @@ public class DataModel {
     }
     @Override
     public String toString() {
-        return this.description + this.imageFileName + this.resolution;
+        return this.description + this.imageFileName;
     }
 
 

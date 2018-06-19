@@ -11,7 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Polyline;
+
 
 import java.awt.*;
 import java.beans.EventHandler;
@@ -27,7 +27,7 @@ public class SettingsPane extends StackPane {
     private Label measurementLabel = new Label("Choose measurement:");
     private Label linearLabel = new Label("linear: ");
     private Label angleLabel = new Label("angle: ");
-    private ColorPicker colorPicker = new ColorPicker();
+    private ColorPicker colorPicker = new ColorPicker(Color.BLACK);
     private Button clearButton = new Button("clear all");
     Button getClearButton() {return clearButton;}
 

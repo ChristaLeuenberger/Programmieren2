@@ -2,59 +2,47 @@
 
 package datamodel;
 
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
-import javax.swing.text.Document;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class DataLoaderXml implements DataLoader {
 
 
-        private static final Logger logger = Logger.getLogger( DataLoader.class.getName() );
+    private static final Logger logger = Logger.getLogger(DataLoader.class.getName());
 
-        public DataLoaderXml() {
+    public DataLoaderXml() {
+    }
+
+    public DataModel loadData(File file) throws ParserConfigurationException, IOException, SAXException {
+
+        String description = null, imageFileName = null, resolutionValue = null, resolutionUnit = null;
+
+        DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+        Document document = documentBuilder.parse(file);
+        NodeList elements = document.getElementsByTagName("image");
+        for (int i = 0; i < elements.getLength(); i++) {
+            Node nNode = elements.item(i);
+
+            Element element = (Element) nNode;
+            description = element.getElementsByTagName("description").item(0).getTextContent();
+            imageFileName = element.getElementsByTagName("image-file").item(0).getTextContent();
+            resolutionValue = element.getElementsByTagName("resolution").item(0).getTextContent();
         }
+        elements = document.getElementsByTagName("resolution");
+        Node nNode = elements.item(0);
+        Element element = (Element) nNode;
+        resolutionUnit = element.getAttribute("unit");
 
-        public DataModel loadDataXml(File file) {
-            List<String> dataLoader = new ArrayList<>();
-
-            try {
-                Scanner scanner = new Scanner(file);
-
-                while (scanner.hasNextLine()) {
-                    dataLoader.add(scanner.nextLine());
-                }
-            } catch (FileNotFoundException var10) {
-                System.out.println("reading file failed: " + var10.getMessage());
-            }
-
-            String description = null;
-            String imageFileName = null;
-            String resolution = null;
-            String resolutionValue = null;
-            String resolutionUnit = null;
-
-           /* DocumentBuilderFactory documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-                Document document = documentBuilder.parse(imageFileName);
-            NodeList elements = document.getDocumenttElement().getE
-
-
-
-
-*/
-
-
-
-    /*public DataModel loadData (File file) {*/
-            return new DataModel(description, imageFileName, resolution, resolutionValue, resolutionUnit);
-        }
-        }
+        return new DataModel(description, imageFileName, resolutionValue, resolutionUnit);
+    }
+}
