@@ -71,8 +71,6 @@ public class ShowImagePane extends Pane {
 
             clearAll(polyline, resultsPane);
 
-
-
             try {
                 logger.info("coordlist(load): "+lineAngleCalculation.getTotalCoordinates());
                 FileChooser fileChooser = new FileChooser();
@@ -99,8 +97,8 @@ public class ShowImagePane extends Pane {
                 imageRationValue = imageRation.calculateImageRation();
                 imageView.setFitWidth(600.0D);
                 imageView.setPreserveRatio(true);
-            } catch (Exception var8) {
-                System.out.println("reading file failed: " + var8.getMessage());
+            } catch (Exception e) {
+                System.out.println("reading file failed: " + e.getMessage());
             }
         });
 
@@ -120,17 +118,19 @@ public class ShowImagePane extends Pane {
 
                     });
                 } else if (settingsPane.getAngleButton().isSelected()) {
+
                     System.out.println("test");
                     drawPolyline(polyline);
                     resultsPane.getResultsPaneButton().setOnAction(event -> {
                         System.out.println("ACTION");
+                        if(3>= lineAngleCalculation.getTotalCoordinates().size()) {
 
+                            Double angle = lineAngleCalculation.calculateAngle();
+                            logger.info("stand 1 winkel" + angle);
+                            resultsPane.getAngleValueLabel().setText(String.valueOf(angle) + " °");
+                            logger.info("Stand Winkel" + angle);
+                        }else{resultsPane.getAngleValueLabel().setText("only tree clicks accepted");}});
 
-                        Double angle = lineAngleCalculation.calculateAngle();
-                        logger.info("stand 1 winkel"+angle);
-                        resultsPane.getAngleValueLabel().setText(String.valueOf(angle));
-                        logger.info("Stand Winkel"+angle);
-                    });
 
 
 

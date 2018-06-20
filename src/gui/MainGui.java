@@ -36,11 +36,11 @@ public class MainGui extends Application {
         mainPane.setTop(showImagePane.getLoadButton());
 
         logger.info(settingsPane.toString());
-        Scene scene = new Scene(mainPane, 1200, 800);
+        Scene scene = new Scene(mainPane, 1000, 700);
         mainStage.setScene(scene);
         mainStage.setTitle("measure image APP");
-        mainStage.setMinWidth(1200);
-        mainStage.setMinHeight(800);
+        mainStage.setMinWidth(1000);
+        mainStage.setMinHeight(700);
         mainStage.show();
 
     }

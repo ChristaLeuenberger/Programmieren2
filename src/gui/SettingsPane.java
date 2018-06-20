@@ -89,10 +89,13 @@ public class SettingsPane extends StackPane {
         measurementsHBox.setSpacing(10.0D);
         measurementsHBox.setPadding(new Insets(5.0D, 5.0D, 5.0D, 5.0D));
         VBox measurementVBox = new VBox();
-        measurementVBox.getChildren().addAll(measurementLabel, measurementsHBox,clearButton);
+        measurementVBox.getChildren().addAll(measurementLabel, measurementsHBox);
         measurementVBox.setPadding(new Insets(5.0D, 5.0D, 5.0D, 5.0D));
+        HBox clearHBox = new HBox();
+        clearHBox.getChildren().add(clearButton);
+        clearHBox.setPadding(new Insets(5.0D, 5.0D, 5.0D, 5.0D));
         VBox settingsVBox = new VBox();
-        settingsVBox.getChildren().addAll(thicknessVBox, colorVBox, measurementVBox);
+        settingsVBox.getChildren().addAll(thicknessVBox, colorVBox, measurementVBox, clearHBox);
         settingsVBox.setAlignment(Pos.CENTER);
         settingsVBox.setSpacing(10.0D);
         settingsVBox.setPadding(new Insets(5.0E00, 5.0E00, 5.0D, 5.0D));
