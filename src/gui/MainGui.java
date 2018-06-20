@@ -2,45 +2,43 @@
 
 package gui;
 
-import java.util.logging.*;
+
 import javafx.application.Application;
-import javafx.scene.Node;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class MainGui extends Application {
 
-    private static final Logger logger = Logger.getLogger( MainGui.class.getName() );
+
     ResultsPane resultsPane = new ResultsPane();
     SettingsPane settingsPane = new SettingsPane();
     BorderPane mainPane = new BorderPane();
 
-    public SettingsPane getSettingsPane() {
-        return settingsPane;
-    }
 
     public MainGui() {
     }
 
     @Override
     public void start(Stage mainStage) throws Exception {
-        logger.info("MainStage von Main: " +  mainStage.toString());
+
         ShowImagePane showImagePane = new ShowImagePane(this, mainStage, settingsPane, resultsPane);
+        showImagePane.getLoadHBox().getChildren().add(showImagePane.getLoadButton());
+        showImagePane.getLoadHBox().setPadding(new Insets(30.0D, 5.0D, 5.0D, 15.0D));
+        showImagePane.getLoadButton().setScaleX(1.2);
+        showImagePane.getLoadButton().setScaleY(1.2);
         mainPane.setLeft(settingsPane);
         mainPane.setBottom(resultsPane);
         mainPane.setRight(showImagePane);
-        mainPane.setTop(showImagePane.getLoadButton());
+        mainPane.setTop(showImagePane.getLoadHBox());
 
-        logger.info(settingsPane.toString());
-        Scene scene = new Scene(mainPane, 1000, 700);
+
+        Scene scene = new Scene(mainPane, 1100, 750);
         mainStage.setScene(scene);
-        mainStage.setTitle("measure image APP");
+        mainStage.setTitle("Measure APP");
         mainStage.setMinWidth(1000);
-        mainStage.setMinHeight(700);
+        mainStage.setMinHeight(750);
         mainStage.show();
 
     }

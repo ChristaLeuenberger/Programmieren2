@@ -9,8 +9,6 @@ import javafx.geometry.Point2D;
 public class LineAngleCalculation {
 
     private static List<Coordinates> totalCoordinates = new LinkedList<>();
-    //private Coordinates coordinates;
-    //private double[] imageRatio;
 
 
     public LineAngleCalculation() {

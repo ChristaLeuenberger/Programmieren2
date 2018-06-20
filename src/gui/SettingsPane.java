@@ -1,7 +1,6 @@
 package gui;
 
-import calculations.LineAngleCalculation;
-import javafx.beans.value.ChangeListener;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
@@ -13,41 +12,31 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 
-import java.awt.*;
-import java.beans.EventHandler;
-
 public class SettingsPane extends StackPane {
 
-    private Slider thicknessSlider = new Slider(0.0D, 20.0D, 2.0D);
-    private Label thicknessLabel = new Label("Choose line thickness:");
-    private Label colorLabel = new Label("Choose line color:");
+    private Slider fontSlider = new Slider(0.0D, 20.0D, 2.0D);
+    private Label fontLabel = new Label("Choose font:");
+    private Label colorLabel = new Label("Choose color:");
     private RadioButton linearButton = new RadioButton();
     private ToggleGroup measurementToggleGroup = new ToggleGroup();
     private RadioButton angleButton = new RadioButton();
-    private Label measurementLabel = new Label("Choose measurement:");
-    private Label linearLabel = new Label("linear: ");
-    private Label angleLabel = new Label("angle: ");
+    private Label measurementLabel = new Label("Choose measurement typ:");
+    private Label lengthLabel = new Label("Length: ");
+    private Label angleLabel = new Label("Angle: ");
     private ColorPicker colorPicker = new ColorPicker(Color.BLACK);
-    private Button clearButton = new Button("clear all");
-    Button getClearButton() {return clearButton;}
+    private Button clearButton = new Button("Clear all");
 
-    Slider getThicknessSlider() {
-        return thicknessSlider;
+    Button getClearButton() {
+        return clearButton;
     }
 
-    Label getThicknessLabel() {
-        return thicknessLabel;
+    Slider getFontSlider() {
+        return fontSlider;
     }
-
-    Label getColorLabel() {
-        return colorLabel;
-    }
-
 
     RadioButton getLinearButton() {
         return linearButton;
     }
-
 
     ToggleGroup getMeasurementToggleGroup() {
         return measurementToggleGroup;
@@ -57,39 +46,30 @@ public class SettingsPane extends StackPane {
         return angleButton;
     }
 
-    Label getMeasurementLabel() {
-        return measurementLabel;
+    ColorPicker getColorPicker() {
+        return colorPicker;
     }
-
-    Label getLinearLabel() {
-        return linearLabel;
-    }
-
-    Label getAngleLabel() {
-        return angleLabel;
-    }
-    ColorPicker getColorPicker() {return colorPicker; }
 
     SettingsPane() {
 
-        thicknessSlider.setShowTickLabels(true);
-        thicknessSlider.setShowTickMarks(true);
-        thicknessSlider.setMajorTickUnit(5);
+        fontSlider.setShowTickLabels(true);
+        fontSlider.setShowTickMarks(true);
+        fontSlider.setMajorTickUnit(5);
         colorPicker.setStyle("-fx-color-label-visible: false ;");
         linearButton.setToggleGroup(measurementToggleGroup);
         angleButton.setToggleGroup(measurementToggleGroup);
         VBox thicknessVBox = new VBox();
-        thicknessVBox.getChildren().addAll(thicknessLabel, thicknessSlider);
+        thicknessVBox.getChildren().addAll(fontLabel, fontSlider);
         thicknessVBox.setPadding(new Insets(5.0D, 5.0D, 5.0D, 5.0D));
         VBox colorVBox = new VBox();
         colorVBox.getChildren().addAll(colorLabel, colorPicker);
         colorVBox.setPadding(new Insets(5.0D, 5.0D, 5.0D, 5.0D));
-        HBox measurementsHBox = new HBox();
-        measurementsHBox.getChildren().addAll(linearLabel, linearButton, angleLabel, angleButton);
-        measurementsHBox.setSpacing(10.0D);
-        measurementsHBox.setPadding(new Insets(5.0D, 5.0D, 5.0D, 5.0D));
+        HBox measurementHBox = new HBox();
+        measurementHBox.getChildren().addAll(lengthLabel, linearButton, angleLabel, angleButton);
+        measurementHBox.setSpacing(3.0D);
+        measurementHBox.setPadding(new Insets(5.0D, 5.0D, 5.0D, 5.0D));
         VBox measurementVBox = new VBox();
-        measurementVBox.getChildren().addAll(measurementLabel, measurementsHBox);
+        measurementVBox.getChildren().addAll(measurementLabel, measurementHBox);
         measurementVBox.setPadding(new Insets(5.0D, 5.0D, 5.0D, 5.0D));
         HBox clearHBox = new HBox();
         clearHBox.getChildren().add(clearButton);
