@@ -121,7 +121,7 @@ public class ShowImagePane extends Pane {
                             Double angle = lineAngleCalculation.calculateAngle();
                             resultsPane.getAngleValueLabel().setText(String.valueOf(angle) + " °");
                         } else {
-                            resultsPane.getAngleValueLabel().setText("only tree clicks accepted");
+                            resultsPane.getAngleValueLabel().setText("only one angle accepted");
                         }
                     });
 
